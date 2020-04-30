@@ -1,5 +1,5 @@
 #!usr/bin/env python3
-import os, json, sys
+import json
 import numpy as np
 
 def characteristics_lists(serials, filename):
