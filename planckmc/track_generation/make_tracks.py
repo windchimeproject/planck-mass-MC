@@ -16,6 +16,7 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
     '''Return tracks with entry and exit vectors in local coords (x=north, y=east, z=up), and entry & exit time.
     vel is an array of velocities. t_entry is an array of time.
     generate_tracks(vel, t_entry):
+        return entry_vecs, exit_vecs, t_entry, t_exit
     '''
     n = len(vel)
     if len(vel) != len(t_entry):
