@@ -1,4 +1,5 @@
-'''Module for random velocity generation based on SHM. Excepted to be upgraded to generate vectors eventually!
+'''Module for random velocity generation based on SHM.
+Excepted to be upgraded to generate vectors eventually!
 '''
 import numpy as np
 from numba import njit

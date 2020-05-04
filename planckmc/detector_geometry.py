@@ -1,8 +1,9 @@
-#!usr/bin/env python3
-import os, json, sys
+'''module to read detector geometry config'''
+import json
 import numpy as np
 
-def pos_vec_list(filename):
+def _pos_vec_list(filename):
+    '''internal function to read detector geometry json'''
     pos_config_file = open(filename)
     header = pos_config_file.readline()
     split_header = header.split(',')
@@ -12,18 +13,27 @@ def pos_vec_list(filename):
     serial_nums = []
     pos_vecs = []
     line_counter = 0
-
+    pos_config_file.close()
     if version != 1:
-        raise ValueError("You are running the incorrect version of the configuration file " + filename + ".\nExiting.")
-    
+        raise ValueError("You are running the incorrect version of the configuration file " +
+                         filename + ".\nExiting.")
+
     for json_obj in lines:
         line_counter += 1
-        
+
     if line_counter > sensor_num:
-        raise ValueError("You have more sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
-        
+        raise ValueError("You have more sensors in your file "
+                         + filename +
+                         ' than you have indicated in your header!'
+                         ' (Check for unintentional whitespace and newlines.)\nExiting.'
+                        )
+
     elif line_counter < sensor_num:
-        raise ValueError("You have less sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
+        raise ValueError("You have less sensors in your file " +
+                         filename +
+                         ' than you have indicated in your header! '
+                         '(Check for unintentional whitespace and newlines.)\nExiting.'
+                        )
 
     for json_obj in lines:
         pos_dict = json.loads(json_obj)
@@ -32,7 +42,5 @@ def pos_vec_list(filename):
         pos_vecs.append(vec)
 
     return serial_nums, pos_vecs
-    
 
-
-    
+SENSOR_GEOM = _pos_vec_list('position.json')

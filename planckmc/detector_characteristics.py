@@ -1,8 +1,9 @@
-#!usr/bin/env python3
+'''module to read detector characteristics config'''
 import json
 import numpy as np
 
 def characteristics_lists(serials, filename):
+    '''internal function to read detector characteristics json'''
     characteristics_file = open(filename)
     header = characteristics_file.readline()
     split_header = header.split(',')
@@ -17,14 +18,14 @@ def characteristics_lists(serials, filename):
 
     if version != 1:
         raise ValueError("You are running the incorrect version of the configuration file " + filename +".\nExiting.")
-    
+
     for json_obj in lines:
         line_counter += 1
-            
+
     if line_counter > sensor_num:
         print("File name: " + filename)
         raise ValueError("You have more sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
-        
+
     elif line_counter < sensor_num:
         print("File name: " + filename)
         raise ValueError("You have less sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
@@ -42,10 +43,14 @@ def characteristics_lists(serials, filename):
     if len(serial_nums) != len(serials):
         raise ValueError("You do not have the same number of sensors in your configuration files.\nExiting.")
 
-    for i in range(len(serial_nums)):
-        if serial_nums[i] != serials[i]:
+    for i, serial_num in enumerate(serial_nums):
+        if serial_num != serials[i]:
             raise ValueError("Your serial numbers on line " + str(i+2) + " in each configuration file are not the same.\nExiting")
 
     return orientation, sensitivity, noise
 
 
+def characteristics_dict():
+    with open('characteristics.json') as f:
+        output = json.load(f)
+    return output

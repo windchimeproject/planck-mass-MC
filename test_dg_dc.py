@@ -1,11 +1,11 @@
 #!usr/bin/env python3
 import sys
-import detector_geometry as dg
-import detector_characteristics as dc
+import planckmc.detector_geometry as dg
+import planckmc.detector_characteristics as dc
 
 pos_filename = sys.argv[-2]
 char_filename = sys.argv[-1]
-serials, positions = dg.pos_vec_list(pos_filename)
+serials, positions = dg._pos_vec_list(pos_filename)
 print(serials)
 print(positions)
 
