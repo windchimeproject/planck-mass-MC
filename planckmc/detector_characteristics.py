@@ -5,37 +5,49 @@ import numpy as np
 def characteristics_lists(serials, filename):
     '''internal function to read detector characteristics json'''
     characteristics_file = open(filename)
-    header = characteristics_file.readline()
-    split_header = header.split(',')
-    version = int(split_header[0].lstrip('version: '))
-    sensor_num = int(split_header[1].lstrip(' sensors: '))
-    lines = characteristics_file.readlines()
+
+    with characteristics_file as f:
+        char_dict = json.load(f)
+        
+    version = char_dict["version"]
+    sensor_num = char_dict["sensors"]
+    lines = len(char_dict["detectors"])
     serial_nums = []
     orientation = []
     sensitivity = []
     noise = []
-    line_counter = 0
 
     if version != 1:
         raise ValueError("You are running the incorrect version of the configuration file " + filename +".\nExiting.")
 
-    for json_obj in lines:
-        line_counter += 1
+    if lines > sensor_num:
+        raise ValueError("You have more sensors in your file "
+                         + filename +
+                         ' than you have indicated in your header!'
+                         ' (Check for unintentional whitespace and newlines.)\nExiting.'
+                        )
 
-    if line_counter > sensor_num:
-        print("File name: " + filename)
-        raise ValueError("You have more sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
+    elif lines < sensor_num:
+        raise ValueError("You have less sensors in your file "
+                         + filename +
+                         ' than you have indicated in your header!'
+                         '(Check for unintentional whitespace and newlines.)\nExiting.'
+                        )
 
-    elif line_counter < sensor_num:
-        print("File name: " + filename)
-        raise ValueError("You have less sensors in your file " + filename + " than you have indicated in your header! (Check for unintentional whitespace and newlines.)\nExiting.")
-
-    for json_obj in lines:
-        char_dict = json.loads(json_obj)
-        serial_nums.append(char_dict["serial"])
-        orien_vec = np.array([char_dict["x_orien"], char_dict["y_orien"], char_dict["z_orien"]])
-        sens_vec = np.array([char_dict["x_sens"], char_dict["y_sens"], char_dict["z_sens"]])
-        noise_vec = np.array([char_dict["x_noise"], char_dict["y_noise"], char_dict["z_noise"]])
+    for i in range(lines):
+        serial_nums.append(char_dict["detectors"][i]["serial"])
+        orien_vec = np.array([char_dict["detectors"][i]["x_orien"],
+                              char_dict["detectors"][i]["y_orien"],
+                              char_dict["detectors"][i]["z_orien"]]
+                            )
+        sens_vec = np.array([char_dict["detectors"][i]["x_sens"],
+                             char_dict["detectors"][i]["y_sens"],
+                             char_dict["detectors"][i]["z_sens"]]
+                           )
+        noise_vec = np.array([char_dict["detectors"][i]["x_noise"],
+                              char_dict["detectors"][i]["y_noise"],
+                              char_dict["detectors"][i]["z_noise"]]
+                            )
         orientation.append(orien_vec)
         sensitivity.append(sens_vec)
         noise.append(noise_vec)
@@ -45,12 +57,12 @@ def characteristics_lists(serials, filename):
 
     for i, serial_num in enumerate(serial_nums):
         if serial_num != serials[i]:
-            raise ValueError("Your serial numbers on line " + str(i+2) + " in each configuration file are not the same.\nExiting")
+            raise ValueError("Your serial numbers of detector " + str(i+1) + " in each configuration file are not the same.\nExiting")
 
     return orientation, sensitivity, noise
 
 
-def characteristics_dict():
-    with open('characteristics.json') as f:
-        output = json.load(f)
-    return output
+#def characteristics_dict():
+    #with open('characteristics.json') as f:
+        #output = json.load(f)
+    #return output
