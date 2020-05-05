@@ -1,14 +1,20 @@
 '''module to read detector characteristics config'''
 import json
 import numpy as np
+from .detector_geometry import _pos_vec_list
+from .config import CONFIG
+
+GEOMETRY_FILE = CONFIG['Detector Config']['GeometryFile']
+CHARACTERISTICS_FILE = CONFIG['Detector Config']['CharacteristicsFile']
+_VERSION = int(CONFIG['Detector Config']['Version'])
 
 def characteristics_lists(serials, filename):
     '''internal function to read detector characteristics json'''
     characteristics_file = open(filename)
 
-    with characteristics_file as f:
-        char_dict = json.load(f)
-        
+    with characteristics_file as file:
+        char_dict = json.load(file)
+
     version = char_dict["version"]
     sensor_num = char_dict["sensors"]
     lines = len(char_dict["detectors"])
@@ -17,8 +23,9 @@ def characteristics_lists(serials, filename):
     sensitivity = []
     noise = []
 
-    if version != 1:
-        raise ValueError("You are running the incorrect version of the configuration file " + filename +".\nExiting.")
+    if version != _VERSION:
+        raise ValueError("You are running the incorrect version of the configuration file " +
+                         filename + ".\nExiting.")
 
     if lines > sensor_num:
         raise ValueError("You have more sensors in your file "
@@ -53,16 +60,30 @@ def characteristics_lists(serials, filename):
         noise.append(noise_vec)
 
     if len(serial_nums) != len(serials):
-        raise ValueError("You do not have the same number of sensors in your configuration files.\nExiting.")
+        raise ValueError("You do not have the same number "
+                         "of sensors in your configuration files.\nExiting.")
 
     for i, serial_num in enumerate(serial_nums):
         if serial_num != serials[i]:
-            raise ValueError("Your serial numbers of detector " + str(i+1) + " in each configuration file are not the same.\nExiting")
+            raise ValueError("Your serial numbers of detector " +
+                             str(i+1) +
+                             " in each configuration file are not the same.\nExiting")
 
     return orientation, sensitivity, noise
 
 
-#def characteristics_dict():
-    #with open('characteristics.json') as f:
-        #output = json.load(f)
-    #return output
+def generate_detectors_dict():
+    '''Create dict to contain all detector configuration information.'''
+    serials, pos_vecs = _pos_vec_list(GEOMETRY_FILE)
+    orientation, sensitivity, noise = characteristics_lists(serials, CHARACTERISTICS_FILE)
+    output_dict = {}
+    for i, serial in enumerate(serials):
+        output_dict[serial] = {
+            'position': pos_vecs[i],
+            'orientation': orientation[i],
+            'sensitivity': sensitivity[i],
+            'noise': noise[i],
+        }
+    return output_dict
+
+DETECTOR_CHARACTERISTICS = generate_detectors_dict()
