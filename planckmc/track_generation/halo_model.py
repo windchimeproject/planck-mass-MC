@@ -29,3 +29,8 @@ def vel_calc(v_vals=V_VALS, vel_cdf=VEL_CDF):
     vel_index = np.argmin(np.abs(vel_cdf - rnd_unt_num_vel))
     vel = v_vals[vel_index]
     return vel
+
+@njit
+def generate_vel_array(n=1):
+    '''Generate random velocities.'''
+    return np.array([vel_calc() for _ in range(n)])
