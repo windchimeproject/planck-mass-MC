@@ -38,7 +38,8 @@ def acceleration_function(r, M, G):
 def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties, 
                                timestep=TIMESTEP, padding=SAMPLE_PADDING):
     '''
-    def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit):
+    def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties, 
+                                   timestep=TIMESTEP, padding=SAMPLE_PADDING):
         return output
     output is structured as a list. Each element of the list corresponds to a single track.
     Each track consists of a dict, with the sensor name as the key.
