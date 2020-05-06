@@ -1,6 +1,5 @@
 '''Module for generation of tracks.'''
 import numpy as np
-from numba import jit, double
 from ..config import CONFIG
 from ..detector_characteristics import DETECTOR_CHARACTERISTICS
 
@@ -30,7 +29,6 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
     t_exit = lengths/vel
     return entry_vecs, exit_vecs, t_entry, t_exit
 
-#@jit(double(double,double), nopython=True)
 def acceleration_function(r, M, G):
     distances = np.einsum('ij,ij->i', r, r)
     return (G*M/distances**3)[:,np.newaxis]*r
