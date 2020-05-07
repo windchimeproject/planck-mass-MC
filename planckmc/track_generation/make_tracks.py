@@ -29,14 +29,15 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
     t_exit = lengths/vel
     return entry_vecs, exit_vecs, t_entry, t_exit
 
-def acceleration_function(r, M, G):
-    distances = np.einsum('ij,ij->i', r, r)
-    return (G*M/distances**3)[:,np.newaxis]*r
+def acceleration_function(radius, mass, grav_const):
+    '''acceleration vector from G, M, and vector r.'''
+    distances = np.einsum('ij,ij->i', radius, radius)
+    return (grav_const*mass/distances**3)[:, np.newaxis]*radius
 
-def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties, 
+def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties,
                                timestep=TIMESTEP, padding=SAMPLE_PADDING):
     '''
-    def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties, 
+    def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties,
                                    timestep=TIMESTEP, padding=SAMPLE_PADDING):
         return output
     output is structured as a list. Each element of the list corresponds to a single track.
@@ -47,7 +48,7 @@ def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_
     t_entry = t_entry*1e9
     t_exit = t_exit*1e9
     output = []
-    for i,entry_vec in enumerate(entry_vecs.T):
+    for i, entry_vec in enumerate(entry_vecs.T):
         initial_sample_time = int(t_entry[i]) - int(t_entry[i])%timestep-padding*timestep
         vel_vector = (entry_vec-exit_vecs.T[i])/(t_exit[i]+t_entry[i])
         final_sample_time = int(t_exit[i]) - int(t_exit[i])%timestep+(padding+1)*timestep
@@ -59,9 +60,12 @@ def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_
             dtype='int'
         )
         initial_position = entry_vec-vel_vector*(int(t_entry[i])%timestep+padding*timestep)
-        positions = np.matmul(np.array([(sample_times - initial_sample_time)]).T, np.array([vel_vector])) + initial_position
+        positions = np.matmul(
+            np.array([(sample_times - initial_sample_time)]).T, np.array([vel_vector])
+        ) + initial_position
         track_dict = {}
         track_dict['time'] = sample_times
+        track_dict['particle_location'] = positions
         for key in DETECTOR_CHARACTERISTICS:
             rot_mat = DETECTOR_CHARACTERISTICS[key]['orientation']
             sensor_pos = DETECTOR_CHARACTERISTICS[key]['position']

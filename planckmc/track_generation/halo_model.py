@@ -31,6 +31,6 @@ def vel_calc(v_vals=V_VALS, vel_cdf=VEL_CDF):
     return vel
 
 @njit
-def generate_vel_array(n=1):
+def generate_vel_array(n_vels=1):
     '''Generate random velocities.'''
-    return np.array([vel_calc() for _ in range(n)])
+    return np.array([vel_calc() for _ in range(n_vels)])
