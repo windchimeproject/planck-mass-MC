@@ -10,5 +10,3 @@ Documentation and example notebooks would eventually be uploaded to the Document
 ## Contributers
 * Juehang Qin
 * Robert Orlando
-* Michael Clark
-* Bahaa Elshimy
