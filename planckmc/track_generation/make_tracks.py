@@ -31,7 +31,7 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
 
 def acceleration_function(radius, mass, grav_const):
     '''acceleration vector from G, M, and vector r.'''
-    distances = np.einsum('ij,ij->i', radius, radius)
+    distances = np.sqrt(np.einsum('ij,ij->i', radius, radius))
     return (grav_const*mass/distances**3)[:, np.newaxis]*radius
 
 def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties,
@@ -50,7 +50,7 @@ def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_
     output = []
     for i, entry_vec in enumerate(entry_vecs.T):
         initial_sample_time = int(t_entry[i]) - int(t_entry[i])%timestep-padding*timestep
-        vel_vector = (entry_vec-exit_vecs.T[i])/(t_exit[i]+t_entry[i])
+        vel_vector = (exit_vecs.T[i]-entry_vec)/(t_exit[i]+t_entry[i])
         final_sample_time = int(t_exit[i]) - int(t_exit[i])%timestep+(padding+1)*timestep
         n_samples = (final_sample_time - initial_sample_time)//timestep + 1
         sample_times = np.linspace(
