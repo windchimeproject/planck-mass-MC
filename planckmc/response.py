@@ -1,19 +1,26 @@
+'''detector response module.'''
+import json
+
 import numpy as np
+from scipy import signal
 
-def _sensor_response(acceleration):
+from .config import CONFIG
 
-    delta = [1]
-            
-    impulse = np.convolve(acceleration,delta)
+RESPONSE_FILE = CONFIG['Detector Config']['ResponseFile']
 
-    for i in range(len(acceleration)):
-        step = .01
-        bin_max = .01
-        acc_int = 0
-        while acceleration[i] > bin_max:
-            bin_max += step
-            acc_int += 1
-        acceleration[i] = acc_int
+with open(RESPONSE_FILE) as f:
+    RESPONSE_DICT = json.load(f)
 
-    return impulse, acceleration
-        
+
+def sensor_response(sensor, acceleration, response_dict=RESPONSE_DICT):
+    '''returns ADC value based on true MC acceleration'''
+    linear_response = response_dict[sensor]['linear_response']
+    convolved_list = []
+    for dim in range(acceleration.shape[1]):
+        convolved_list.append(signal.convolve(acceleration[:, dim], linear_response))
+    convolved_signal = np.array(convolved_list).T
+
+    signal_transfer_response = response_dict[sensor]['signal_transfer_response']
+    output_signal = np.searchsorted(signal_transfer_response, convolved_signal)
+
+    return output_signal
