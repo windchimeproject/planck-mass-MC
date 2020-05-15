@@ -5,7 +5,7 @@ import numpy as np
 from scipy import signal
 
 from .config import CONFIG
-from detector_characteristics import DETECTOR_CHARACTERISTICS
+from .detector_characteristics import DETECTOR_CHARACTERISTICS
 
 RESPONSE_FILE = CONFIG['Detector Config']['ResponseFile']
 
