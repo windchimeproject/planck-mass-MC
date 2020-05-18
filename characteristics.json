@@ -1,8 +1,10 @@
-{"version": 1, "sensors": 4,
+{"version": 1, "sensors": 6,
 "detectors": [
-    {"serial": "15ZE", "x_orien": 1, "y_orien": 0, "z_orien": 1, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
-    {"serial": "22FP", "x_orien": 0, "y_orien": 1, "z_orien": 1, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
-    {"serial": "14BC", "x_orien": 1, "y_orien": 1, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
-    {"serial": "79QT", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75}
+    {"serial": "15ZE", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
+    {"serial": "22FP", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
+    {"serial": "14BC", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
+    {"serial": "79QT", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
+    {"serial": "8YAC", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75},
+    {"serial": "Z453", "x_orien": 1, "y_orien": 0, "z_orien": 0, "x_sens": 1, "y_sens": 1, "z_sens": 1, "x_noise": 75, "y_noise": 75, "z_noise": 75}
 ]
 }
