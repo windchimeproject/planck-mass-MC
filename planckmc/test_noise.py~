@@ -1,0 +1,19 @@
+import json
+
+import numpy as np
+import sys
+from scipy import signal
+
+from .detector_characteristics import DETECTOR_CHARACTERISTICS
+
+RESPONSE_FILE = 'response.json'
+NOISE_FILE = 'noise.json'
+
+with open(RESPONSE_FILE) as f:
+    RESPONSE_DICT = json.load(f)
+
+with open(NOISE_FILE) as f:
+    NOISE_DICT = json.load(f)
+
+noise = np.convolve(DETECTOR_CHARACTERISTICS[sensor]['x_noise'], NOISE_DICT['psd'])
+print(noise)
