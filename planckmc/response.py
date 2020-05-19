@@ -8,15 +8,20 @@ from .config import CONFIG
 from .detector_characteristics import DETECTOR_CHARACTERISTICS
 
 RESPONSE_FILE = CONFIG['Detector Config']['ResponseFile']
+NOISE_FILE = CONFIG['Detector Config']['NoiseFile']
 
 with open(RESPONSE_FILE) as f:
     RESPONSE_DICT = json.load(f)
+
+with open(NOISE_FILE) as f:
+    NOISE_DICT = json.load(f)
 
 def sensor_response(sensor, acceleration, response_dict=RESPONSE_DICT):
     '''returns ADC value based on true MC acceleration'''
 
     linear_response = response_dict[sensor]['linear_response']
     sensitivity = DETECTOR_CHARACTERISTICS[sensor]['sensitivity']
+    noise = np.convolve(DETECTOR_CHARACTERISTICS[sensor]['x_noise'], NOISE_DICT['psd'])
     convolved_list = []
     for dim in range(acceleration.shape[1]):
         voltage = acceleration[:, dim]*sensitivity[dim]

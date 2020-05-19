@@ -1,0 +1,29 @@
+This file contains a description of the formatting and units within each configuration file. We
+will provide a description of each separate configuration file in detail.
+
+1) position.json: This configuration file contains the position of each sensor (designated by its
+serial number). Each position is represented by a three dimensional vector in units of (blank).
+A horizontal coordinate system is used as our basis to represent each vector. We separate the
+vector into its conponents for convenience in the file.
+
+2) characteristics.json: This configuration file contains the orientation, sensitivity, and noise
+density vectors of each sensor designated by their serial number. We use the same horizontal
+coordinate system as a basis to represent our vectors.  The vectors are again separated into
+their components for convenience. The orientation units are in units of (blank), the sensitivity
+is in units of milli-volts per gravitational acceleration at the surface of the earth (mV/g),
+and the noise density is in units of micro-volts per gravitational acceleration at the surface of
+the earth (uV/g). g is taken to be 9.81 m/s^2.
+
+3) response.json: This file contains the function we are convolving the accelerations with called
+'linear_response' to get an output reading. For now we are convolving with a kronecker delta, but
+this is subject to change. 'signal_transfer_response' contains all of the binning limits for the
+accelerations. The accelerations are in units of inverse square meters (m^-2) as are the binning
+limits. These accelerations are eventually transformed into integers to mimic a digitizer's
+response to an accelerometer's measured acceleration. Once again this information is given for
+each sensor indicated by its serial number.
+
+***Note on adding sensors***: It is suggested that if you wish to add a sensor to copy the line
+of an existing sensor and pasting it to the end of the json object list. From there change all
+informaation that needs to be changed (most importantly the serial number). Do not forget to
+change the sensor number at the beginning of the file if present. Verify that there are no
+extra/unnecessary whitespace and/or newlines. 
