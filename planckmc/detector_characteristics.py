@@ -55,12 +55,11 @@ def characteristics_lists(serials, filename):
                               char_dict["detectors"][i]["y_noise"],
                               char_dict["detectors"][i]["z_noise"]]
                             )
-        orientation.append(orien_vec)
-        #orientation.append(np.array([
-        #    [1, 0, 0],
-        #    [0, 1, 0],
-        #    [0, 0, 1]
-        #])) #Needs to be changed!!! Temporary rotation matrix that does not read from config.
+        orientation.append(np.array([
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ])) #Needs to be changed!!! Temporary rotation matrix that does not read from config.
         sensitivity.append(sens_vec)
         noise.append(noise_vec)
 
