@@ -17,12 +17,12 @@ def sensor_response(sensor, acceleration, response_dict=RESPONSE_DICT):
 
     linear_response = response_dict[sensor]['linear_response']
     sensitivity = DETECTOR_CHARACTERISTICS[sensor]['sensitivity']
-    scaling = 2.0*np.pi
-    noise = DETECTOR_CHARACTERISTICS[sensor]['noise']*np.random.rand(3)
+    #scaling = 2.0*np.pi
+    noise = DETECTOR_CHARACTERISTICS[sensor]['noise']*np.random.randn(*acceleration.shape)
+    acceleration_w_noise = acceleration + noise
     convolved_list = []
-    for dim in range(acceleration.shape[1]):
-        acceleration[:, dim] += scaling*noise
-        voltage = acceleration[:, dim]*sensitivity[dim]
+    for dim in range(acceleration_w_noise.shape[1]):
+        voltage = acceleration_w_noise[:, dim]*sensitivity[dim]
         convolved_list.append(signal.convolve(voltage, linear_response))
     convolved_signal = np.array(convolved_list).T
 
