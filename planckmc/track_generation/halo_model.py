@@ -9,7 +9,7 @@ from ..config import CONFIG
 
 V_MAX = float(CONFIG['Track Generation']['TrackMaxVel'])
 V_MIN = float(CONFIG['Track Generation']['TrackMinVel'])
-V_BINS = float(CONFIG['Track Generation']['TrackVelBins'])
+V_BINS = int(CONFIG['Track Generation']['TrackVelBins'])
 def _vel_make_cdf():
     '''Generates velocity cdf. Internal function.'''
     v_vals = np.linspace(V_MIN, V_MAX, V_BINS)
