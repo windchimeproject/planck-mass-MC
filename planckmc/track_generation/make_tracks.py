@@ -6,6 +6,7 @@ from ..detector_characteristics import DETECTOR_CHARACTERISTICS
 RADIUS = float(CONFIG['Track Generation']['BoundingSphereRadius'])
 TIMESTEP = int(CONFIG['Track Generation']['Timestep'])
 SAMPLE_PADDING = int(CONFIG['Track Generation']['SamplePadding'])
+SENSOR_RADIUS = float(CONFIG['Detector Config']['SensorRadius'])
 
 def sample_spherical(ndim=3, n_vecs=1):
     '''pick a random point on a unit sphere'''
@@ -29,9 +30,10 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
     t_exit = lengths/vel
     return entry_vecs, exit_vecs, t_entry, t_exit
 
-def acceleration_function(radius, mass, grav_const):
+def acceleration_function(radius, mass, grav_const, sensor_radius=SENSOR_RADIUS):
     '''acceleration vector from G, M, and vector r.'''
     distances = np.sqrt(np.einsum('ij,ij->i', radius, radius))
+    distances = np.minimum(distances, sensor_radius)
     return (grav_const*mass/distances**3)[:, np.newaxis]*radius
 
 def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties,
