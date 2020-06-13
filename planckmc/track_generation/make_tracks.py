@@ -33,7 +33,7 @@ def generate_tracks(vel, t_entry, radius=RADIUS,):
 def acceleration_function(radius, mass, grav_const, sensor_radius=SENSOR_RADIUS):
     '''acceleration vector from G, M, and vector r.'''
     distances = np.sqrt(np.einsum('ij,ij->i', radius, radius))
-    distances = np.minimum(distances, sensor_radius)
+    distances = np.maximum(distances, sensor_radius)
     return (grav_const*mass/distances**3)[:, np.newaxis]*radius
 
 def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_properties,
