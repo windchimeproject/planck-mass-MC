@@ -29,7 +29,7 @@ def sensor_response(sensor, acceleration, response_dict=RESPONSE_DICT):
                 'Signal is shorter than the impulse response to be convolved with!',
                 RuntimeWarning
             )
-        convolved_list.append(signal.convolve(voltage, linear_response, mode='valid'))
+        convolved_list.append(signal.convolve(voltage, linear_response, mode='same'))
     convolved_signal = np.array(convolved_list).T
 
     signal_transfer_response = response_dict[sensor]['signal_transfer_response']
