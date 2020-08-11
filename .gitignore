@@ -2,16 +2,4 @@
 .vscode/*
 *.code-workspace
 .ipynb_checkpoints
-
-from planckmc.track_generation import halo_model
-from planckmc.track_generation import make_tracks
-from planckmc.detector_characteristics import DETECTOR_CHARACTERISTICS
-from planckmc.response import sensor_response, RESPONSE_DICT
-from planckmc.config import CONFIG
-import numpy as np
-from numba import njit, jit
-
-vel = halo_model.generate_vel_array(n_vels=1000)
-entry_vecs, exit_vecs, t_entry, t_exit = make_tracks.generate_tracks(vel, np.zeros(vel.shape))
-out = make_tracks.generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, {'M':1, 'G':1},)
-print(sensor_response(sensors[0], out[0][sensors[0]]))
+*response.json

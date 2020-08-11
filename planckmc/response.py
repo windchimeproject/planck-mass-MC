@@ -1,5 +1,6 @@
 '''detector response module.'''
 import json
+from warnings import warn
 
 import numpy as np
 from scipy import signal
@@ -23,7 +24,12 @@ def sensor_response(sensor, acceleration, response_dict=RESPONSE_DICT):
     convolved_list = []
     for dim in range(acceleration_w_noise.shape[1]):
         voltage = acceleration_w_noise[:, dim]*sensitivity[dim]
-        convolved_list.append(signal.convolve(voltage, linear_response))
+        if len(voltage) < len(linear_response):
+            warn(
+                'Signal is shorter than the impulse response to be convolved with!',
+                RuntimeWarning
+            )
+        convolved_list.append(signal.convolve(voltage, linear_response, mode='same'))
     convolved_signal = np.array(convolved_list).T
 
     signal_transfer_response = response_dict[sensor]['signal_transfer_response']
