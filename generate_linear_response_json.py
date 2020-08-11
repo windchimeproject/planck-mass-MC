@@ -8,8 +8,6 @@ import json
 import numpy as np
 from planckmc.detector_characteristics import DETECTOR_CHARACTERISTICS
 
-#test
-
 def output_response_json(file, bits, min_acceleration, max_acceleration):
     '''generate response json'''
     bin_borders = list(np.linspace(min_acceleration, max_acceleration, 2**bits-1, endpoint=True))
