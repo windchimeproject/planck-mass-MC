@@ -17,6 +17,28 @@ def FIR_filter(sample_rate = 1 / (float(CONFIG['Track Generation']['Timestep']) 
     taps = firwin(N, cutoff_hz/nyq_rate, window=('kaiser', beta))
     return taps
 
+def FIR_filter_Lin_Tri(desired_len = 100, max_val = 0.45):
+    #len actually is: desired_len plus 1 if it is even, exactly equal to desired_len if it is odd
+
+    dum_init = np.linspace(0, max_val, int((desired_len - 2) / 2))
+    dum_fin = np.linspace(max_val, 0, int((desired_len - 2) / 2))
+    actl_max = [((max_val / (int(desired_len - 2) / 2))) + max_val]
+
+    if len(dum_init) + len(dum_fin) != desired_len:
+        side_pad_FIR = int((desired_len - (len(dum_init) + len(dum_fin))) / 2)
+        init_array, fin_array = np.zeros(side_pad_FIR), np.zeros(side_pad_FIR)
+        arr_lin_resp_long = np.concatenate((init_array, dum_init, actl_max, dum_fin, fin_array))
+        arr_lin_resp = arr_lin_resp_long / np.linalg.norm(arr_lin_resp_long, ord=1)
+    return arr_lin_resp
+
+def FIR_filter_Gauss(centr_gauss = 0, sigma_gauss = 0.25, desired_len_guass = 100):
+    x_guass = np.linspace(-sigma_gauss * 4, sigma_gauss * 4, desired_len_guass)
+    arr_lin_resp_long_gauss = (2 * np.pi * sigma_gauss ** 2) ** -.5 * np.exp(
+        -.5 * (x_guass - centr_gauss) ** 2 / sigma_gauss ** 2)
+
+    arr_lin_resp_gauss = arr_lin_resp_long_gauss / np.linalg.norm(arr_lin_resp_long_gauss, ord=1)
+    return arr_lin_resp_gauss
+
 def output_response_json(file, bits, min_acceleration, max_acceleration):
     '''generate response json'''
     bin_borders = list(np.linspace(min_acceleration, max_acceleration, 2**bits-1, endpoint=True))
