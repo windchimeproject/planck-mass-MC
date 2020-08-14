@@ -39,7 +39,7 @@ def FIR_filter_Gauss(centr_gauss = 0, sigma_gauss = 0.25, desired_len_guass = 10
     arr_lin_resp_gauss = arr_lin_resp_long_gauss / np.linalg.norm(arr_lin_resp_long_gauss, ord=1)
     return arr_lin_resp_gauss
 
-def output_response_json(file, bits, min_acceleration, max_acceleration, Lin_Resp = FIR_filter():
+def output_response_json(file, bits, min_acceleration, max_acceleration, Lin_Resp = FIR_filter()):
     '''generate response json'''
     bin_borders = list(np.linspace(min_acceleration, max_acceleration, 2**bits-1, endpoint=True))
     output_dict = {}
