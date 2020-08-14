@@ -45,9 +45,9 @@ def output_response_json(file, bits, min_acceleration, max_acceleration, Resp = 
     output_dict = {}
     if Resp == 'FIR_filter':
         Lin_Resp = list(FIR_filter())
-    else if Resp == 'Tri_filter':
+    elif Resp == 'Tri_filter':
         Lin_Resp = list(FIR_filter_Lin_Tri())
-    else if Resp == 'Gauss_filter':
+    elif Resp == 'Gauss_filter':
         Lin_Resp = list(FIR_filter_Gauss)
     for sensor in DETECTOR_CHARACTERISTICS:
         output_dict[sensor] = {'linear_response': Lin_Resp, 'signal_transfer_response': bin_borders}
