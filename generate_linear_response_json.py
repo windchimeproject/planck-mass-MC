@@ -24,10 +24,13 @@ def FIR_filter_Lin_Tri(desired_len, max_val):
     constant = side_sum / max_val
     num_of_vals = round(2 * constant)
 
-    init_array = np.linspace(0, max_val, num_of_vals)[0:-1]
-    end_array = np.linspace(max_val, 0, num_of_vals)[1:]
-    dum_side_array = np.zeros(int((desired_len - (len(init_array) + len(end_array))) / 2))
-    arr_lin_resp = np.concatenate((dum_side_array, init_array, [max_val], end_array, dum_side_array))
+    if desired_len > 1:
+        init_array = np.linspace(0, max_val, num_of_vals)[0:-1]
+        end_array = np.linspace(max_val, 0, num_of_vals)[1:]
+        dum_side_array = np.zeros(int((desired_len - (len(init_array) + len(end_array))) / 2))
+        arr_lin_resp = np.concatenate((dum_side_array, init_array, [max_val], end_array, dum_side_array))
+    else:
+        arr_lin_resp = [max_val]
     return arr_lin_resp
 
 def FIR_filter_Gauss(centr_gauss, sigma_gauss, desired_len):
