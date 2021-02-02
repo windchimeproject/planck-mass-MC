@@ -1,9 +1,9 @@
 {
-    "version": 3,
+    "version": 5,
     "sensors": 64,
     "detectors": [
         {
-            "serial": "376011",
+            "serial": "0D15D5",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -15,7 +15,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "7D0B2D",
+            "serial": "E194AD",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -27,7 +27,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "FB4128",
+            "serial": "0C3291",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -39,7 +39,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "8B0AE2",
+            "serial": "561097",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -51,7 +51,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "A4AA10",
+            "serial": "534A04",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -63,7 +63,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "2AB43E",
+            "serial": "DA18CE",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -75,7 +75,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "D56CB7",
+            "serial": "1202B4",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -87,7 +87,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "003CF3",
+            "serial": "0F4E6A",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -99,7 +99,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "6F4B57",
+            "serial": "147EEF",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -111,7 +111,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "252744",
+            "serial": "325433",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -123,7 +123,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "66B6BF",
+            "serial": "60D876",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -135,7 +135,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "5813AB",
+            "serial": "E6A4F3",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -147,7 +147,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "41A7BC",
+            "serial": "6416C5",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -159,7 +159,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "E022C7",
+            "serial": "1D975A",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -171,7 +171,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "E1CA4C",
+            "serial": "453816",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -183,7 +183,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "491F88",
+            "serial": "7AFE33",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -195,7 +195,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "AA1370",
+            "serial": "A9C1D2",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -207,7 +207,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "9977ED",
+            "serial": "095DCD",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -219,7 +219,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "955BCC",
+            "serial": "2BF06B",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -231,7 +231,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "99F03D",
+            "serial": "3048A8",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -243,7 +243,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "2AE883",
+            "serial": "5DBEA2",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -255,7 +255,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "3AEF85",
+            "serial": "6EC3C8",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -267,7 +267,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "BB7AD0",
+            "serial": "B18B5D",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -279,7 +279,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "CAFC20",
+            "serial": "267BFF",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -291,7 +291,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "78793D",
+            "serial": "1BB1B1",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -303,7 +303,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "7E1C05",
+            "serial": "8CA83A",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -315,7 +315,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "78D778",
+            "serial": "73DC53",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -327,7 +327,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "D034DB",
+            "serial": "44279A",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -339,7 +339,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "FC11CC",
+            "serial": "E0FCFE",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -351,7 +351,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "96059C",
+            "serial": "D52749",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -363,7 +363,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "1A1977",
+            "serial": "45D7C3",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -375,7 +375,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "9BDE29",
+            "serial": "EE3AFC",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -387,7 +387,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "5407FE",
+            "serial": "32F626",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -399,7 +399,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "5BF713",
+            "serial": "536C23",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -411,7 +411,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "9416CD",
+            "serial": "3151CA",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -423,7 +423,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "F60E79",
+            "serial": "0D2CC1",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -435,7 +435,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "D5874D",
+            "serial": "F66FAC",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -447,7 +447,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "AAEEDA",
+            "serial": "82554D",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -459,7 +459,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "45AF70",
+            "serial": "C61573",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -471,7 +471,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "813781",
+            "serial": "09C09E",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -483,7 +483,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "39D782",
+            "serial": "6FF112",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -495,7 +495,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "FDEA25",
+            "serial": "EAB7FD",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -507,7 +507,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "215A39",
+            "serial": "B5019E",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -519,7 +519,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "351210",
+            "serial": "13958A",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -531,7 +531,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "EA5CD1",
+            "serial": "9E3D48",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -543,7 +543,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "2CFF1D",
+            "serial": "AD3270",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -555,7 +555,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "FBD074",
+            "serial": "A7E29E",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -567,7 +567,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "060BEC",
+            "serial": "1C11DF",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -579,7 +579,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "5178CA",
+            "serial": "307B86",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -591,7 +591,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "914D90",
+            "serial": "0B6C61",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -603,7 +603,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "5C8BE7",
+            "serial": "9931A2",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -615,7 +615,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "143F30",
+            "serial": "780351",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -627,7 +627,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "CD295B",
+            "serial": "38ADC4",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -639,7 +639,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "ECEFD4",
+            "serial": "943BAE",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -651,7 +651,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "B3E3AA",
+            "serial": "1A325C",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -663,7 +663,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "BA1E8A",
+            "serial": "C08FFA",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -675,7 +675,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "7FF751",
+            "serial": "D97AB5",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -687,7 +687,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "614FC9",
+            "serial": "2A6553",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -699,7 +699,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "2FFDFC",
+            "serial": "5B8B9F",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -711,7 +711,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "0CAB7F",
+            "serial": "030D8D",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -723,7 +723,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "1AEB24",
+            "serial": "C9FD3C",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -735,7 +735,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "C8905C",
+            "serial": "3850A4",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -747,7 +747,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "25A7E0",
+            "serial": "BE6AF5",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
@@ -759,7 +759,7 @@
             "z_noise": 0.02
         },
         {
-            "serial": "6F08A6",
+            "serial": "921C33",
             "x_orien": 1,
             "y_orien": 0,
             "z_orien": 0,
