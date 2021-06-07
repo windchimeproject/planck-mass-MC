@@ -41,7 +41,7 @@ def FIR_filter_Gauss(centr_gauss, sigma_gauss, desired_len):
     arr_lin_resp_gauss = arr_lin_resp_long_gauss / np.linalg.norm(arr_lin_resp_long_gauss, ord=1)
     return arr_lin_resp_gauss
 
-def output_response_json(file, bits, min_acceleration, max_acceleration, desired_len = 801, max_val = 0.5, centr_gauss = 0, sigma_gauss = 0.25, Resp = 'FIR_filter'):
+def output_response_json(file, bits, min_acceleration, max_acceleration, desired_len = 801, max_val = 0.5, centr_gauss = 0, sigma_gauss = 0.25, Resp = 'FIR_filter', Mode = 'individual'):
     '''generate response json'''
     bin_borders = list(np.linspace(min_acceleration, max_acceleration, 2**bits-1, endpoint=True))
     output_dict = {}
@@ -52,9 +52,15 @@ def output_response_json(file, bits, min_acceleration, max_acceleration, desired
     elif Resp == 'Gauss_filter':
         Lin_Resp = list(FIR_filter_Gauss(centr_gauss, sigma_gauss, desired_len))
 
-    for sensor in DETECTOR_CHARACTERISTICS:
-        output_dict[sensor] = {'linear_response': Lin_Resp, 'signal_transfer_response': bin_borders}
-    json.dump(output_dict, file)
+    if Mode == 'individual':
+        output_dict['Mode'] = Mode
+        for sensor in DETECTOR_CHARACTERISTICS:
+            output_dict[sensor] = {'linear_response': Lin_Resp, 'signal_transfer_response': bin_borders}
+        json.dump(output_dict, file)
+    else:
+        output_dict['Mode'] = Mode
+        output_dict['response_features'] = {'linear_response': Lin_Resp, 'signal_transfer_response': bin_borders}
+        json.dump(output_dict, file)
 
 
 if __name__ == '__main__':
