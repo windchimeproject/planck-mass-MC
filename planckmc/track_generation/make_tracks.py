@@ -52,7 +52,7 @@ def generate_acceleration_dict(entry_vecs, exit_vecs, t_entry, t_exit, particle_
     output = []
     for i, entry_vec in enumerate(entry_vecs.T):
         initial_sample_time = int(t_entry[i] - t_entry[i]%timestep)-strt_padding*timestep
-        vel_vector = (exit_vecs.T[i]-entry_vec)/(t_exit[i]+t_entry[i])
+        vel_vector = (exit_vecs.T[i]-entry_vec)/(t_exit[i]-t_entry[i])
         final_sample_time = int(t_exit[i] - t_exit[i]%timestep)+(end_padding+1)*timestep
         n_samples = (final_sample_time - initial_sample_time)//timestep + 1
         sample_times = np.linspace(
